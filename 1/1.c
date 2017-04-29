@@ -17,7 +17,6 @@ BSTreeNode* treeRoot = 0;
 BSTreeNode* treeHead = 0;
 BSTreeNode* pre = 0;
 
-//func 1
 void convert(BSTreeNode* root)
 {
     if(root != 0)
@@ -37,7 +36,6 @@ void convert(BSTreeNode* root)
 	}
 }
 
-//func 2
 void convert2(BSTreeNode **head, BSTreeNode **tail, BSTreeNode *root)
 {
   BSTreeNode *lt = NULL; 
@@ -145,6 +143,7 @@ int main()
 	int a[7] = {10, 6, 14, 4, 8, 12, 16};
 	
 	createTree(a, 7);
+
 #if 1
     BSTreeNode *head = NULL;
     BSTreeNode *tail = NULL;
