@@ -29,9 +29,12 @@ void convert(BSTreeNode* root)
 			root->m_pLeft = pre;
 			//printf("link\n");
 		}
+
 		if(!treeHead)
 			treeHead = root;
+
 		pre = root;
+
 		convert(root->m_pRight);
 	}
 }
@@ -139,23 +142,24 @@ void DestroyTree(BSTreeNode* root)
 
 int main()
 {
-
 	int a[7] = {10, 6, 14, 4, 8, 12, 16};
 	
 	createTree(a, 7);
 
-#if 1
+#if 0
     BSTreeNode *head = NULL;
     BSTreeNode *tail = NULL;
     convert2(&head, &tail, treeRoot);
     visitLink(head);
 #endif
 
-#if 0    
+#if 1
 	convert(treeRoot);
 	treeRoot = treeHead;
 	visitLink(treeRoot);
 #endif
 	DestroyLink(treeRoot);
 	//DestroyTree(root);
+
+    return 0;
 }
