@@ -1,7 +1,9 @@
+// g++ -g ./1.c
+
 #include <stdio.h>
 #include <stdlib.h>
 
-struct BSTreeNode_;
+//struct BSTreeNode_;
 
 typedef struct BSTreeNode_
 {
@@ -15,6 +17,7 @@ BSTreeNode* treeRoot = 0;
 BSTreeNode* treeHead = 0;
 BSTreeNode* pre = 0;
 
+//func 1
 void convert(BSTreeNode* root)
 {
     if(root != 0)
@@ -32,6 +35,35 @@ void convert(BSTreeNode* root)
 		pre = root;
 		convert(root->m_pRight);
 	}
+}
+
+//func 2
+void convert2(BSTreeNode **head, BSTreeNode **tail, BSTreeNode *root)
+{
+  BSTreeNode *lt = NULL; 
+  BSTreeNode *rh = NULL;
+  
+  if (root == NULL) {
+    head = NULL, tail = NULL;
+    return;
+  }
+  
+  convert2(head, &lt, root->m_pLeft);
+  convert2(&rh, tail, root->m_pRight);
+  
+  if (lt != NULL) {
+    lt->m_pRight = root;
+    root->m_pLeft = lt;
+  } else {
+    *head = root;
+  }
+  
+  if (rh != NULL) {
+    root->m_pRight = rh;
+    rh->m_pLeft = root;
+  } else {
+    *tail = root;
+  }
 }
 
 void DestroyLink(BSTreeNode* head)
@@ -109,11 +141,22 @@ void DestroyTree(BSTreeNode* root)
 
 int main()
 {
+
 	int a[7] = {10, 6, 14, 4, 8, 12, 16};
+	
 	createTree(a, 7);
+#if 1
+    BSTreeNode *head = NULL;
+    BSTreeNode *tail = NULL;
+    convert2(&head, &tail, treeRoot);
+    visitLink(head);
+#endif
+
+#if 0    
 	convert(treeRoot);
 	treeRoot = treeHead;
 	visitLink(treeRoot);
+#endif
 	DestroyLink(treeRoot);
 	//DestroyTree(root);
 }
