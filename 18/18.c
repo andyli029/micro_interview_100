@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-#define N 5
-#define M 4
+#define N 3
+#define M 1
 
 int joseph(int n, int m) {
   int fn = 0;
@@ -33,22 +33,30 @@ int main()
 
 	while (count < N)
 	{
-		//printf("%d ", point);
+		printf("\npoint:%d ", point);
 		prior = point;
 
 		for (int i = 0; i < delEle - 1; ++i)
-		{
+        {
 			prior = cursor[prior];
+            printf("prior:%d.", prior);            
 		}
 
 		point = cursor[prior];
 		cursor[prior] = cursor[point];
+        printf("prior:%d, point:%d, cursor[%d]:%d.\n",
+                    prior, point, prior,cursor[prior]); 
 		count++;
 	}
 
-	printf("%d\n", point);
+    if (point == 0)
+    {
+        point = N;
+    }
 
-    printf("%d\n", joseph(N, M));    
+	printf("\n%d", point);
+
+    printf("\n%d\n", joseph(N, M));    
 
 	return 1;
 }
