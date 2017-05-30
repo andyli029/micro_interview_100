@@ -1,4 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <stack>
+using namespace std;
 
 typedef struct lnode_
 {
@@ -132,6 +136,24 @@ lnode* LinkedListCreat()
     return l; 
 }
 
+void PrintlistReverse5(lnode *pHead)
+{
+    stack<lnode *> nodes;
+    lnode *pNode = pHead->next;
+
+    while(pNode != NULL)
+    {
+        nodes.push(pNode);
+        pNode = pNode->next;
+    }
+
+    while( !nodes.empty() )
+    {
+        cout << nodes.top()->data << " ";
+        nodes.pop();
+    }
+}
+
 int main()
 {
     lnode* list;
@@ -143,11 +165,16 @@ int main()
         printf("%d ",start->data);
 
     printf("\n");
-    
-    list = ReverseSinglyLinkedList3(list);
+
+#if 0  
+    list = ReverseSinglyLinkedList4(list);
 
     for(start = list->next; start != NULL; start = start->next)
         printf("%d ",start->data);
+    printf("\n");
+#endif
+
+    PrintlistReverse5(list);
 
     printf("\n");
 
