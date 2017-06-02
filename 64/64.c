@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-
+// http://zhedahht.blog.163.com/blog/static/2541117420094245366965/
 bool IsUgly(int number)
 {
     while(number % 2 == 0)
@@ -60,11 +60,11 @@ int GetUglyNumber_Solution2(int index)
         int min = Min(*pMultiply2 * 2, *pMultiply3 * 3, *pMultiply5 * 5);
         pUglyNumbers[nextUglyIndex] = min;
  
-        while(*pMultiply2 * 2 <= pUglyNumbers[nextUglyIndex])
+        while(*pMultiply2 * 2 <= min) // min become to pUglyNumbers[nextUglyIndex]
             ++pMultiply2;
-        while(*pMultiply3 * 3 <= pUglyNumbers[nextUglyIndex])
+        while(*pMultiply3 * 3 <= min)
             ++pMultiply3;
-        while(*pMultiply5 * 5 <= pUglyNumbers[nextUglyIndex])
+        while(*pMultiply5 * 5 <= min)
             ++pMultiply5;
  
         ++nextUglyIndex;
