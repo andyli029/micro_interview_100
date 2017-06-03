@@ -20,14 +20,14 @@ void reverseStack2(stack<int> s, int n)
         int topData = s.top();
         s.pop();
         reverseStack2(s, n - 1);
-        
     }
-
 }
+
 void addToStackBottom(stack<int>& s, int top)
 {
     if(s.empty())
     {
+        cout << "the top is:" << top << endl;
         s.push(top);
     }
     else
@@ -37,10 +37,9 @@ void addToStackBottom(stack<int>& s, int top)
         //´íÎó£ºaddToStackBottom(s,tmp);
         addToStackBottom(s, top);
         s.push(tmp);
+        cout << "the tmp is:" << tmp << endl;
     }
 }
-
-
 
 void reverseStack(stack<int>& s)
 {
@@ -49,9 +48,10 @@ void reverseStack(stack<int>& s)
         int top = s.top();
         s.pop();
         reverseStack(s);
-        addToStackBottom(s,top);
+        addToStackBottom(s, top);
     }
 }
+
 int main()
 {
     stack<int> s;
@@ -59,24 +59,21 @@ int main()
     for(int i = 1; i <= 5; i++)
         s.push(i);
 
-    cout<<"the stack top ";
-     
+    cout<<"the stack top "; 
         for(int i = 5; i >= 1; i--)
-            cout<<i<<ends;
-         
-     
-    cout<<" the stack tail"<<endl;
+            cout << i << ends;
+    cout<<" the stack tail" << endl;
 
     reverseStack(s);
 
     cout<<"the stack top ";
-
     while(!s.empty())
     {
-        int top=s.top();
+        int top = s.top();
         s.pop();
-        cout<<top<<ends;
+        cout << top <<ends;
     }
-    cout<<" the stack tail"<<endl;
+    cout << " the stack tail" << endl;
 
+    return 0;
 }

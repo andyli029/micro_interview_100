@@ -16,7 +16,7 @@ void PrintSumProbabilityOfDices(int number)
 	int *pSum = new int[number * FACE_NUM + 1]; //和的种类
 	double total = pow(6.0, number);  //<cmath>
 	int size = number * FACE_NUM;
-	int i,j,k;
+	int i, j, k;
 
 	//初始化
 	pSum[0] = 0;
@@ -30,14 +30,18 @@ void PrintSumProbabilityOfDices(int number)
 		for(j = i * FACE_NUM; j >= i; j--) //第i个骰子的和的范围为 [i, i*FACE_NUM]
 		{
 			pSum[j] = 0;
-			for(k = 1; k <= 6 && j >= k; k++) 
 //其实展开就是 F(i, j) = F(i-1, j-6) + F(i-1, j-5) + F(i-1, j-4) + F(i-1, j-3) + F(i-1, j-2) + F(i-1, j-1) 
+			for(k = 1; k <= 6 && j >= k; k++) 
 			{
-				pSum[j] += pSum[j-k]; 
+                if (j == number * FACE_NUM)
+                {
+                    cout << j << endl;
+                }
+				pSum[j] += pSum[j - k]; 
 			}
 		}
 		//不可能的情况，即i个骰子的和不可能小于i
-		for(j = i - 1;j >= 0; j--)
+		for(j = i - 1; j >= 0; j--)
 			pSum[j] = 0;
 	}
 
@@ -48,6 +52,6 @@ void PrintSumProbabilityOfDices(int number)
 
 int main()
 {
-    PrintSumProbabilityOfDices(1);
+    PrintSumProbabilityOfDices(2);
     return 0;
 }

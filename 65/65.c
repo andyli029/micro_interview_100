@@ -40,8 +40,8 @@ void Print1ToMaxOfNDigitsRecursively(char *number,
 void Print1ToMaxOfNDigit3(int n)
 {
 	if(n < 0)
-		return;
-	
+        return;
+
 	char *number = new char[n + 1];
 	number[n] = '\0';
 	
@@ -53,8 +53,23 @@ void Print1ToMaxOfNDigit3(int n)
     cout << endl;
 }
 
+// I optimize Print1ToMaxOfNDigit3
+void Print1ToMaxOfNDigit_me(int n)
+{
+	if(n < 0)
+        return;
+
+	char *number = new char[n + 1];
+	number[n] = '\0';
+	
+    Print1ToMaxOfNDigitsRecursively(number, n, -1);
+
+    cout << endl;
+}
+
+
 int main()
 {
-    Print1ToMaxOfNDigit3(2);
+    Print1ToMaxOfNDigit_me(2);
     return 0;
 }

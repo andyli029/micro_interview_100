@@ -54,6 +54,7 @@ bool isContinuous(int A[])
             min = A[i];//记录最小牌
         if(temp[A[i]] != 0 && A[i] != 0)//有非王的重牌；
             return false;
+
         temp[A[i]]++;//做hash ，记录王牌，或非玩牌的值。
     }
 
