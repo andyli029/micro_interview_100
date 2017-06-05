@@ -20,13 +20,13 @@ void CloneNodes(ComplexNode* pHead)
         pCloned->m_nValue = pNode->m_nValue;
         pCloned->m_pNext = pNode->m_pNext;
         pCloned->m_pSibling = NULL;
- 
+
         pNode->m_pNext = pCloned;
- 
+
         pNode = pCloned->m_pNext;
     }
 }
-     
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Connect sibling nodes in a complex link list
@@ -47,7 +47,6 @@ void ConnectSiblingNodes(ComplexNode* pHead)
     }
 }
 
-  
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Split a complex list into two:
