@@ -49,6 +49,7 @@ void Reorder(int *pData, unsigned int length, bool (*func)(int))
 // Input: an integer
 // otherwise return false
 /////////////////////////////////////////////////////////////////////////
+//Even:Å¼Êı£¬odd:ÆæÊı
 bool isEven(int n)
 {
     return (n & 1) == 0;

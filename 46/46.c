@@ -1,4 +1,4 @@
-// Catalan c(2n ,n)/(n + 1) = c(2n, n) - c(2n, n-1)
+// catalan c(2n ,n)/(n + 1) = c(2n, n) - c(2n, n-1)
 // https://zh.wikipedia.org/wiki/%E5%8D%A1%E5%A1%94%E5%85%B0%E6%95%B0
 
 #include <iostream>
