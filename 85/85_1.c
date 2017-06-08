@@ -10,9 +10,8 @@ int get_substr_num(char *p, int p_len, char *sub, int sub_len)
 {
     int i;
     int s;
-    int c;
     int sum = 0;
-    
+
     for (i = 0; i < p_len; i++)
     {
         s = 0;
