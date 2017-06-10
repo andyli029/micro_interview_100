@@ -47,7 +47,7 @@ int main()
 	char str[100];
 	int index = -1;
     int len = -1;
-    
+
 	while(gets(str) != NULL)
 	{
 	    len = LIS(str, &index);
