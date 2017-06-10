@@ -1,4 +1,7 @@
 // the similar to 85_1
+#include <iostream>
+#include <string.h>
+using namespace std;
 
 int get_substr_num(char *p, int p_len, char *sub, int sub_len)
 {
