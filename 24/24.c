@@ -166,7 +166,7 @@ int main()
 
     printf("\n");
 
-#if 0  
+#if 1 
     list = ReverseSinglyLinkedList4(list);
 
     for(start = list->next; start != NULL; start = start->next)
