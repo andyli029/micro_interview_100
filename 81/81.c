@@ -22,12 +22,13 @@ int findNum(int* arr, int n)
                 idx--;
         }
     }
-    
+
     for (i = 0; i < idx; i++)
         cout<< cand[i] <<" ";
     cout << endl;
 
     delete[] cand;
+
     return idx;
 }
 
